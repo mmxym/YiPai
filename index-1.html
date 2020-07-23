@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script>
+			var ua = navigator.userAgent.toLowerCase();
+			if (ua.match(/MicroMessenger/i) == "micromessenger") {
+				//ios的ua中无miniProgram，但都有MicroMessenger（表示是微信浏览器）
+				wx.miniProgram.getEnv((res) => {
+					if (res.miniprogram) {
+						alert("在小程序里");
+					} else {
+						alert("不在小程序里");
+					}
+				})
+			} else {
+				alert('不在微信里');
+			}
+		</script>
+	</body>
+</html>
